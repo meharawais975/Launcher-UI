@@ -28,18 +28,18 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose, onAppOpen }) => 
   if (!isOpen) return null;
 
   return (
-    <div className="absolute inset-0 z-20 flex flex-col p-6 animate-fade-in glass-dark-ios">
+    <div className="absolute inset-0 z-20 flex flex-col p-6 animate-fade-in glass-dark-oneui">
       {/* Header spacing for Status Bar */}
       <div className="h-10 w-full" />
 
-      <div className="w-full mt-4 flex items-center bg-white/20 backdrop-blur-3xl rounded-2xl px-5 py-3.5 border border-white/20 shadow-xl">
-        <svg className="w-5 h-5 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <div className="w-full mt-4 flex items-center bg-white/10 backdrop-blur-3xl rounded-[24px] px-6 py-4 border border-white/10 shadow-xl">
+        <svg className="w-5 h-5 text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
           <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
         <input 
           autoFocus
-          className="flex-1 bg-transparent border-none outline-none px-3 text-white placeholder-white/60 text-[15px] font-medium"
-          placeholder="Search Apps"
+          className="flex-1 bg-transparent border-none outline-none px-4 text-white placeholder-white/40 text-[16px] font-medium"
+          placeholder="Search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -52,7 +52,7 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose, onAppOpen }) => 
             className="flex flex-col items-center gap-2.5 cursor-pointer group"
             onClick={(e) => handleAppClick(e, app.id)}
           >
-            <div className={`${app.color} w-16 h-16 ios-icon flex items-center justify-center shadow-lg transition duration-200 active:scale-90 group-hover:scale-105`}>
+            <div className={`${app.color} w-16 h-16 samsung-icon flex items-center justify-center shadow-lg transition duration-200 active:scale-90 group-hover:scale-105`}>
               <svg className="w-8 h-8 text-white drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d={app.icon} />
               </svg>
@@ -64,8 +64,8 @@ const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose, onAppOpen }) => 
       
       {/* Indicator to swipe down */}
       <div className="mt-auto flex justify-center pb-12">
-        <button onClick={onClose} className="text-white/40 text-[12px] font-bold tracking-widest uppercase">
-          Tap anywhere to exit
+        <button onClick={onClose} className="text-white/30 text-[11px] font-bold tracking-[0.2em] uppercase">
+          Back to Home
         </button>
       </div>
     </div>

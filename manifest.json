@@ -1,16 +1,19 @@
 
 {
-  "name": "Galaxy One UI Launcher",
+  "name": "Galaxy One UI 7",
   "short_name": "Galaxy",
-  "start_url": "/",
+  "description": "Premium Samsung One UI 7 concept launcher.",
+  "start_url": "./index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
       "src": "https://img.icons8.com/color/512/samsung.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

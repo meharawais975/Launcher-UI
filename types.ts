@@ -1,5 +1,6 @@
 
-export type AppID = 'assistant' | 'weather' | 'settings' | 'camera' | 'browser' | 'calculator' | 'gallery' | 'notes';
+// Fix: Added missing AppID values to match those defined in constants.tsx
+export type AppID = 'assistant' | 'weather' | 'settings' | 'camera' | 'browser' | 'calculator' | 'gallery' | 'notes' | 'phone' | 'messages' | 'playstore' | 'clock' | 'files';
 
 export interface Rect {
   top: number;

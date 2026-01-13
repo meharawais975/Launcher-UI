@@ -1,18 +1,19 @@
 
-# Galaxy One UI Launcher
+# 📱 Galaxy One UI 7 Launcher
 
-A high-fidelity Samsung One UI 7 concept launcher built with React, Tailwind CSS, and the Gemini API.
+A high-fidelity PWA launcher for Android devices.
 
-## Features
-- **One UI 7 Aesthetic**: Squircle icons, glassmorphism, and Samsung-style widgets.
-- **PWA Support**: Install it on your Android phone for a full-screen launcher experience.
-- **Bixby Intelligence**: Integrated Gemini AI assistant.
-- **Quick Panel**: Swipe-down control center with brightness and connectivity toggles.
+## 🚀 Deployment to GitHub
+1. Upload all files to your repository.
+2. Enable **GitHub Pages** from settings.
+3. Open the link on your **Android Phone** in **Chrome**.
 
-## How to use on Android
-1. **Upload** these files to a public GitHub repository.
-2. Go to **Settings > Pages** in your repo.
-3. Select the `main` branch and click **Save**.
-4. Visit the live URL in **Google Chrome** on your phone.
-5. Tap the Chrome menu (three dots) and select **Add to Home Screen**.
-6. Launch the app from your home screen for the full, immersive experience.
+## 📲 How to use as a real app
+1. In Chrome, tap the **3-dots menu (⋮)**.
+2. Select **"Install App"** or **"Add to Home Screen"**.
+3. Launch "Galaxy" from your real app drawer. It will run in **Full Screen Standalone Mode**.
+
+## ✨ Pro Tip
+- Swipe down from the notification bar area for **Quick Panel**.
+- Swipe up from the bottom for **App Drawer**.
+- Use the left nav button for the **Samsung Recents Carousel**.

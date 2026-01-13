@@ -7,15 +7,20 @@
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
-    <title>Galaxy One UI Launcher</title>
+    <title>Galaxy One UI 7</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
+            touch-action: manipulation;
         }
         body, html {
             margin: 0;
@@ -25,59 +30,99 @@
             overflow: hidden;
             background: #000;
             font-family: 'Inter', sans-serif;
+            color: white;
         }
         #root { width: 100%; height: 100%; }
         
-        /* Samsung Squircle Icon Shape */
+        /* One UI 7 Squircle: 32% border radius */
         .samsung-icon {
             border-radius: 32%;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+        .samsung-icon:active { transform: scale(0.9); }
         
-        /* Full Blur Glassmorphism - Samsung Style */
+        /* Ultra-refined Glassmorphism */
         .glass-oneui {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(100px) saturate(220%) brightness(1.05);
-            -webkit-backdrop-filter: blur(100px) saturate(220%) brightness(1.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(80px) saturate(210%) brightness(1.1);
+            -webkit-backdrop-filter: blur(80px) saturate(210%) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .glass-dark-oneui {
-            background: rgba(20, 20, 20, 0.5);
-            backdrop-filter: blur(120px) saturate(180%) brightness(0.9);
-            -webkit-backdrop-filter: blur(120px) saturate(180%) brightness(0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(12, 12, 12, 0.7);
+            backdrop-filter: blur(120px) saturate(160%) brightness(0.8);
+            -webkit-backdrop-filter: blur(120px) saturate(160%) brightness(0.8);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
         
-        /* Navigation Bar Styles */
         .nav-button {
-            width: 44px;
-            height: 44px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            transition: background 0.2s;
+            border-radius: 16px;
+            transition: background 0.2s, transform 0.1s;
         }
-        .nav-button:active { background: rgba(255,255,255,0.1); }
+        .nav-button:active { 
+            background: rgba(255,255,255,0.15); 
+            transform: scale(0.85);
+        }
 
+        @keyframes fade-in {
+            from { opacity: 0; transform: scale(1.02); filter: blur(15px); }
+            to { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+        .animate-fade-in { animation: fade-in 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+
+        @keyframes slide-left {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .animate-slide-left { animation: slide-left 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
         ::-webkit-scrollbar { display: none; }
+        
+        /* Prevents pull-to-refresh on mobile browsers */
+        body { overscroll-behavior-y: contain; }
     </style>
-<script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom": "https://esm.sh/react-dom@^19.2.3",
-    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
     "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
-<body class="fixed inset-0">
+<body>
     <div id="root"></div>
+    <script type="text/babel" data-type="module">
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App';
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW Fail:', err));
+            });
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<React.StrictMode><App /></React.StrictMode>);
+    </script>
 </body>
 </html>

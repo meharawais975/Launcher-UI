@@ -7,6 +7,14 @@ import WeatherApp from './Apps/Weather';
 import GalleryApp from './Apps/Gallery';
 import CalculatorApp from './Apps/Calculator';
 import SettingsApp from './Apps/Settings';
+import CameraApp from './Apps/Camera';
+import BrowserApp from './Apps/Browser';
+import NotesApp from './Apps/Notes';
+import PhoneApp from './Apps/Phone';
+import MessagesApp from './Apps/Messages';
+import ClockApp from './Apps/Clock';
+import FilesApp from './Apps/Files';
+import StoreApp from './Apps/Store';
 
 interface WindowProps {
   appId: AppID;
@@ -68,6 +76,14 @@ const Window: React.FC<WindowProps> = ({ appId, startRect, isClosing, onClose, o
       case 'gallery': return <GalleryApp />;
       case 'calculator': return <CalculatorApp />;
       case 'settings': return <SettingsApp />;
+      case 'camera': return <CameraApp />;
+      case 'browser': return <BrowserApp />;
+      case 'notes': return <NotesApp />;
+      case 'phone': return <PhoneApp />;
+      case 'messages': return <MessagesApp />;
+      case 'clock': return <ClockApp />;
+      case 'files': return <FilesApp />;
+      case 'playstore': return <StoreApp />;
       default: return (
         <div className="flex-1 flex flex-col items-center justify-center text-neutral-800 p-8 text-center bg-white h-full">
           <p className="text-2xl font-extrabold tracking-tight">Intelligence System</p>
@@ -79,10 +95,9 @@ const Window: React.FC<WindowProps> = ({ appId, startRect, isClosing, onClose, o
 
   return (
     <div 
-      className="fixed z-50 flex flex-col glass-ios overflow-hidden will-change-transform transition-all duration-[750ms] cubic-bezier(0.19, 1, 0.22, 1)"
+      className="fixed z-50 flex flex-col glass-oneui overflow-hidden will-change-transform transition-all duration-[750ms] cubic-bezier(0.19, 1, 0.22, 1)"
       style={style}
     >
-      {/* Dynamic Header */}
       <div 
         className={`h-16 flex items-end justify-between px-8 pb-3 transition-all duration-500 ${
           isExpanded && !isClosing ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
@@ -90,7 +105,7 @@ const Window: React.FC<WindowProps> = ({ appId, startRect, isClosing, onClose, o
         style={{ paddingTop: 'env(safe-area-inset-top, 12px)' }}
       >
         <div className="flex items-center gap-4">
-            <div className={`w-9 h-9 ios-icon ${app?.color} flex items-center justify-center shadow-lg border border-white/20`}>
+            <div className={`w-9 h-9 samsung-icon ${app?.color} flex items-center justify-center shadow-lg border border-white/20`}>
                 <svg className="w-5 h-5 text-white drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                     <path d={app?.icon} />
                 </svg>
@@ -102,7 +117,6 @@ const Window: React.FC<WindowProps> = ({ appId, startRect, isClosing, onClose, o
         </button>
       </div>
 
-      {/* Application Body Content */}
       <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-700 delay-100 ${
         isExpanded && !isClosing 
           ? 'opacity-100 translate-y-0 scale-100' 
@@ -113,7 +127,6 @@ const Window: React.FC<WindowProps> = ({ appId, startRect, isClosing, onClose, o
         </div>
       </div>
 
-      {/* App Specific Home Indicator Bottom Padding */}
       <div className="h-10 w-full flex items-center justify-center flex-shrink-0 bg-transparent">
          <div className="w-1/3 h-1.5 bg-black/10 rounded-full" />
       </div>
