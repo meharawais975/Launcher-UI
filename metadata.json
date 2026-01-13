@@ -1,0 +1,8 @@
+{
+  "name": "Samsung One UI 7 Launcher",
+  "description": "A high-fidelity Samsung One UI 7 concept launcher featuring squircle icons, glassmorphism, and Galaxy AI integration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,11 +1,18 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# Galaxy One UI Launcher
 
-  <h1>Built with AI Studio</h2>
+A high-fidelity Samsung One UI 7 concept launcher built with React, Tailwind CSS, and the Gemini API.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Features
+- **One UI 7 Aesthetic**: Squircle icons, glassmorphism, and Samsung-style widgets.
+- **PWA Support**: Install it on your Android phone for a full-screen launcher experience.
+- **Bixby Intelligence**: Integrated Gemini AI assistant.
+- **Quick Panel**: Swipe-down control center with brightness and connectivity toggles.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+## How to use on Android
+1. **Upload** these files to a public GitHub repository.
+2. Go to **Settings > Pages** in your repo.
+3. Select the `main` branch and click **Save**.
+4. Visit the live URL in **Google Chrome** on your phone.
+5. Tap the Chrome menu (three dots) and select **Add to Home Screen**.
+6. Launch the app from your home screen for the full, immersive experience.
